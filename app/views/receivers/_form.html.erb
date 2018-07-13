@@ -1,0 +1,18 @@
+<%= simple_form_for(receiver) do |form| %>
+  <% if receiver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(receiver.errors.count, "error") %> prohibited this receiver from being saved:</h2>
+
+      <ul>
+      <% receiver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form.input :name %>
+  <%= form.input :phone %>
+
+  <%= form.submit :submit %>
+<% end %>
