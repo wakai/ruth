@@ -1,4 +1,4 @@
-<%= simple_form_for(receiver, html: { class: 'form-inline' }) do |form| %>
+<%= simple_form_for(receiver) do |form| %>
   <% if receiver.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(receiver.errors.count, "error") %> prohibited this receiver from being saved:</h2>
@@ -10,9 +10,9 @@
       </ul>
     </div>
   <% end %>
-  
+
   <%= form.input :name %>
   <%= form.input :phone %>
 
-  <%= form.submit :submit %>
+  <%= form.submit :submit, class: 'btn btn-primary' %>
 <% end %>
