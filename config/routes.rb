@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   root to: "receivers#index"
 
   devise_for :users
