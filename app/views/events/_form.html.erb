@@ -1,4 +1,4 @@
-<%= form_with(model: event, local: true) do |form| %>
+<%= simple_form_for(event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -12,28 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.input :description %>
   </div>
 
   <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
+    <%= form.input :start_date %>
   </div>
 
   <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
+    <%= form.input :end_date %>
   </div>
 
   <div class="field">
-    <%= form.label :receiver_id %>
-    <%= form.text_field :receiver_id %>
+    <%= form.association :receiver, collection: current_user.receivers.pluck(:name,:id), prompt: true %>
   </div>
 
   <div class="field">
-    <%= form.label :hour %>
-    <%= form.time_select :hour %>
+    <%= form.input :hour %>
   </div>
 
   <div class="actions">
